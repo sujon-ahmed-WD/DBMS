@@ -1,0 +1,41 @@
+# now this topic is subquery 
+
+USE dummydb; -- akna amier salary table modda sob thaka 2ed maximum number data deva ........
+SELECT *
+ FROM EMPLOYEES
+ WHERE SALARY=
+(
+SELECT distinct SALARY
+FROM EMPLOYEES 
+ORDER BY SALARY desc
+LIMIT 1
+OFFSET 1 
+
+);
+SELECT *  -- akna amier salary table modda sob thaka 2ed maximum number data deva ........
+FROM employees
+WHERE SALARY=
+(SELECT MAX(SALARY)
+ FROM EMPLOYEES 
+ WHERE SALARY < (SELECT MAX(SALARY)
+				FROM EMPLOYEES));
+
+
+
+SELECT * -- ATA AMI BOJI NI ......
+FROM EMPLOYEES AS EMP
+WHERE SALARY > (SELECT  SALARY 
+				FROM employees AS MGR
+				WHERE EMP.MANAGER_ID=MGR.EMPLOYEE_ID);
+                
+
+WITH TEMP AS  
+(
+	
+    SELECT *
+    FROM EMPLOYEES 
+    LIMIT 5
+)
+SELECT *
+FROM TEMP;
+                
