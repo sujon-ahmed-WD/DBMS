@@ -1,0 +1,19 @@
+ -- Determine the third highest salary and which employee receives it?
+ 
+ qustion link : https://docs.google.com/document/d/1HwzXEVtZYrB766xasbpcYFr5mhFI6W-c8f-c7kBXpmA/edit?tab=t.0
+ 
+ SELECT * FROM EMPLOYEES WHERE SALARY = (
+ SELECT MAX(salary)
+ FROM employees
+ WHERE SALARY<
+ (SELECT MAX(salary)
+ FROM employees
+ WHERE SALARY<  (SELECT  MAX(SALARY) 
+                   FROM employees)));
+                   
+SELECT * FROM employees WHERE SALARY=(
+SELECT MIN(SALARY) FROM EMPLOYEES WHERE SALARY>(
+ SELECT MIN(SALARY) FROM EMPLOYEES WHERE SALARY>(
+ SELECT MIN(SALARY) FROM employees)));
+ 
+USE DUMMYDB;
