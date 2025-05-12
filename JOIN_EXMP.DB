@@ -1,0 +1,31 @@
+ select m.First_NAME, e.First_NAME                              -- self join chello  'clear  ' 
+ FROM EMPLOYEES AS e
+	join Employees As m
+    ON e.Employee_ID=m.Manager_ID;
+    
+select DEPARTMENTS.DEPARTMENT_NAME                           -- lEFT JOIN  .. 'BOJI NI BRO ATA ... '
+FROM  DEPARTMENTS
+     LEFT  JOIN employees
+         ON departments.department_id=employees.employee_id
+WHERE employees.department_id IS null;
+
+SHOW TABLES FROM dummydb; -- atao boji nh 
+select 
+employees.first_name,
+employees.salary,
+    (SELECT AVG(salary) FROM employees WHERE department_ID = employees.department_ID) - employees.salary -- avrage salary 
+
+from employees
+	join departments -- from and join korbo 
+		on employees.department_id=departments.department_id;  -- kar sappkka join korbo .. 
+        
+        
+SELECT DEPARTMENT_NAME -- SELEC
+FROM EMPLOYEES
+	JOIN DEPARTMENTS
+		ON EMPLOYEES.DEPARTMENT_ID = DEPARTMENTS.DEPARTMENT_ID
+GROUP BY  DEPARTMENT_NAME
+HAVING MIN(SALARY)>3000;
+
+--------------------                                         mid exam link                    --------------------------------------
+https://docs.google.com/document/d/1IkK4jrJsP0ltVVpWb0cPilyb5eyHMbFebjyY3zKka0A/edit?tab=t.0
