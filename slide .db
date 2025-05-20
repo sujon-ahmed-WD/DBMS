@@ -1,1 +1,10 @@
 https://docs.google.com/document/d/1qmTAwqnuxmw5rXbmfAaGzhnWtcmo5XXl5wFGOZl5fC0/edit?tab=t.x9ezweg20qig
+
+
+
+# Write your MySQL query statement below
+
+
+select max(salary)as SecondHighestSalary 
+from employee
+where salary not in (select max(salary)from employee);
